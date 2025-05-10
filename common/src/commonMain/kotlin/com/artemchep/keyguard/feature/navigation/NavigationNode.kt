@@ -23,6 +23,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.artemchep.keyguard.common.usecase.GetNavAnimation
 import com.artemchep.keyguard.platform.LocalAnimationFactor
+import com.artemchep.keyguard.ui.WunderPopup
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.persistentListOf
 import org.kodein.di.compose.rememberInstance

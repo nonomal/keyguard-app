@@ -33,7 +33,7 @@ class CopyText(
         PASSPORT_NUMBER(Res.string.copied_passport_number),
         LICENSE_NUMBER(Res.string.copied_license_number),
         CARD_NUMBER(Res.string.copied_card_number),
-        CARD_CARDHOLDER_NAME(Res.string.copied_cardholder_name),
+        CARD_CARDHOLDER_NAME(Res.string.copie    d_cardholder_name),
         CARD_EXP_YEAR(Res.string.copied_expiration_year),
         CARD_EXP_MONTH(Res.string.copied_expiration_month),
         CARD_CVV(Res.string.copied_cvv_code),

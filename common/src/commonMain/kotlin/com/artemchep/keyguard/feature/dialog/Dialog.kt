@@ -44,6 +44,8 @@ import com.artemchep.keyguard.feature.navigation.LocalNavigationController
 import com.artemchep.keyguard.feature.navigation.NavigationIntent
 import com.artemchep.keyguard.platform.leIme
 import com.artemchep.keyguard.platform.leSystemBars
+import com.artemchep.keyguard.ui.DialogPopup
+import com.artemchep.keyguard.ui.WunderPopup
 import com.artemchep.keyguard.ui.theme.Dimens
 import com.artemchep.keyguard.ui.theme.combineAlpha
 import com.artemchep.keyguard.ui.util.HorizontalDivider
@@ -60,7 +62,13 @@ fun Dialog(
     contentScrollable: Boolean = true,
     actions: @Composable FlowRowScope.() -> Unit,
 ) {
-    Dialog {
+    val updatedNavController by rememberUpdatedState(LocalNavigationController.current)
+    DialogPopup(
+        onDismissRequest = {
+            val intent = NavigationIntent.Pop
+            updatedNavController.queue(intent)
+        },
+    ) {
         val scrollState = rememberScrollState()
         val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
         Column(
@@ -181,6 +189,23 @@ fun Dialog(
                     .height(16.dp),
             )
         }
+    }
+}
+
+@Composable
+fun PopupDialog(
+    content: @Composable BoxScope.() -> Unit,
+) {
+    val updatedNavController by rememberUpdatedState(LocalNavigationController.current)
+    WunderPopup(
+        onDismissRequest = {
+            val intent = NavigationIntent.Pop
+            updatedNavController.queue(intent)
+        },
+    ) {
+        Dialog(
+            content = content,
+        )
     }
 }
 
